@@ -8,9 +8,7 @@ const pool = new Pool({
   password: process.env.PGPASSWORD,
   database: process.env.PGDATABASE,
   port: process.env.PGPORT || 5432,
-  ssl: {
-    rejectUnauthorized: false
-  }
+  ssl: process.env.PGHOST !== 'localhost' ? { rejectUnauthorized: false } : false
 });
 const port = process.env.PORT || 3000;
 const server = http.createServer(async (req, res) => {
