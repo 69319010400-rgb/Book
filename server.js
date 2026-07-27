@@ -3,7 +3,7 @@ const http = require('http');
 const { Pool } = require('pg');
 // 2. ตั้งคาการเชื่อมตอ โดยดึง URL มาจาก Environment Variable ของ Railway
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.DATABASE_URL || process.env.POSTGRES_URL,
   ssl: {
     rejectUnauthorized: false
   }
