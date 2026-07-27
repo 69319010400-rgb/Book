@@ -9,6 +9,7 @@ const port = process.env.PORT || 3000;
 const server = http.createServer(async (req, res) => {
 res.statusCode = 200;
 res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  
 try {
 // 3. ขอเชื่อมตอและสงคําสั่ง SQL ไปดึงขอมูลจากตาราง students
 const client = await pool.connect();
